@@ -17,7 +17,7 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.blacksquircle.ui">
+    package="cn.leafcolor.ui">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -31,7 +31,7 @@
         android:supportsRtl="false"
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme"
-        android:name="com.blacksquircle.ui.SquircleApp"
+        android:name="cn.leafcolor.ui.SquircleApp"
         android:fullBackupContent="@xml/backup_descriptor"
         tools:replace="android:supportsRtl">
 

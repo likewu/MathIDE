@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.blacksquircle.ui
+package cn.leafcolor.ui
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
