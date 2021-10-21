@@ -34,6 +34,12 @@ class JuliaParser private constructor() : LanguageParser {
     }
 
     override fun execute(name: String, source: String): ParseResult {
+        val mathlandDir = File(Environment.getExternalStorageDirectory(), "MathLand")
+        if (mathlandDir.exists() == false) {
+            val parseException = ParseException("Please make sure MathLand is installed and sdCard 'MathLand' directory is exist.", 0, 0)
+            return ParseResult(parseException)
+        }
+
         val parseException = ParseException("Unable to parse unsupported language", 0, 0)
         return ParseResult(parseException)
     }
