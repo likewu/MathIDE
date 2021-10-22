@@ -103,6 +103,7 @@ class ToolbarManager(
 
             // Tools Menu
             R.id.action_error_checking -> listener.onErrorCheckingButton()
+            R.id.action_code_run -> listener.onCodeRunButton()
             R.id.action_insert_color -> listener.onInsertColorButton()
 
             // Overflow Menu
@@ -245,6 +246,7 @@ class ToolbarManager(
         fun onFindInputChanged(findText: String)
 
         fun onErrorCheckingButton()
+        fun onCodeRunButton()
         fun onInsertColorButton()
 
         fun onUndoButton(): Boolean

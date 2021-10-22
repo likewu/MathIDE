@@ -16,9 +16,11 @@
 
 package com.blacksquircle.ui.language.julia.parser
 
+import android.os.Environment
 import com.blacksquircle.ui.language.base.exception.ParseException
 import com.blacksquircle.ui.language.base.model.ParseResult
 import com.blacksquircle.ui.language.base.parser.LanguageParser
+import java.io.File
 
 class JuliaParser private constructor() : LanguageParser {
 
@@ -45,7 +47,7 @@ class JuliaParser private constructor() : LanguageParser {
             return ParseResult(parseException)
         }
 
-        if (path.equals(mathlandDir.) == false) {
+        if (path.contains(mathlandDir.absolutePath)  == false) {
             val parseException = ParseException("Please make sure the source in sdCard 'MathLand' directory.", 0, 0)
             return ParseResult(parseException)
         }

@@ -64,6 +64,7 @@ class EditorViewModel @Inject constructor(
 
     val toastEvent = SingleLiveEvent<Int>() // Отображение сообщений
     val parseEvent = SingleLiveEvent<ParseResult>() // Проверка ошибок
+    val runEvent = SingleLiveEvent<ParseResult>()
     val contentEvent = SingleLiveEvent<Pair<DocumentContent, PrecomputedTextCompat>>() // Контент загруженного файла
 
     val openFileEvent = SingleLiveEvent<DocumentModel>() // Открытие файла из проводника в редакторе
@@ -157,6 +158,14 @@ class EditorViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val parser = language?.getParser()
             val parseResult = parser?.execute(documentModel.name, sourceCode)
+            parseResult?.let(parseEvent::postValue)
+        }
+    }
+
+    fun run(documentModel: DocumentModel, language: Language?, sourceCode: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val parser = language?.getParser()
+            val parseResult = parser?.execute(documentModel.name, sourceCode, documentModel.path)
             parseResult?.let(parseEvent::postValue)
         }
     }

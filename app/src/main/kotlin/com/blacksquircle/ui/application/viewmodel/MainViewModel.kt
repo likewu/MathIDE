@@ -20,7 +20,7 @@ import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.blacksquircle.ui.R
+import cn.leafcolor.ui.R
 import com.blacksquircle.ui.data.converter.DocumentConverter
 import com.blacksquircle.ui.data.storage.keyvalue.SettingsManager
 import com.blacksquircle.ui.domain.repository.documents.DocumentRepository

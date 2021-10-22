@@ -16,12 +16,13 @@
 
 package com.blacksquircle.ui.language.base.parser
 
+import com.blacksquircle.ui.language.base.exception.ParseException
 import com.blacksquircle.ui.language.base.model.ParseResult
 
 interface LanguageParser {
     fun execute(name: String, source: String): ParseResult
-    default fun execute(name: String, source: String, path: String): ParseResult {
-        val parseException = ParseException("Unable to parse unsupported language", 0, 0)
+    fun execute(name: String, source: String, path: String): ParseResult {
+        val parseException = ParseException("Unable to run unsupported language", 0, 0)
         return ParseResult(parseException)
     }
 }

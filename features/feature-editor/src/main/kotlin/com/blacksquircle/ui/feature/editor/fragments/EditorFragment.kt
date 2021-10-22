@@ -637,6 +637,24 @@ class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
         }
     }
 
+    override fun onCodeRunButton() {
+        val position = adapter.selectedPosition
+        if (position > -1) {
+            MaterialDialog(requireContext()).show {
+                title(R.string.dialog_title_result)
+                message(R.string.message_no_errors_detected)
+                viewModel.runEvent.value?.let { model ->
+                    model.exception?.let {
+                        message(text = it.message)
+                    }
+                }
+                positiveButton(R.string.action_ok)
+            }
+        } else {
+            context?.showToast(R.string.message_no_open_files)
+        }
+    }
+
     override fun onInsertColorButton() {
         val position = adapter.selectedPosition
         if (position > -1) {

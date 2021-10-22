@@ -23,6 +23,11 @@
         android:icon="@drawable/ic_code_check"
         app:iconTint="@color/colorIcon"/>
     <item
+            android:id="@+id/action_code_run"
+            android:title="@string/action_code_run"
+            android:icon="@drawable/ic_tools"
+            app:iconTint="@color/colorIcon"/>
+    <item
         android:id="@+id/action_insert_color"
         android:title="@string/action_insert_color"
         android:icon="@drawable/ic_palette"
