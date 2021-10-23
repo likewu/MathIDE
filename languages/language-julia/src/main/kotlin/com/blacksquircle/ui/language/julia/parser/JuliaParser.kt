@@ -22,6 +22,7 @@ import com.blacksquircle.ui.language.base.model.ParseResult
 import com.blacksquircle.ui.language.base.parser.LanguageParser
 import java.io.File
 
+
 class JuliaParser private constructor() : LanguageParser {
 
     companion object {
@@ -52,7 +53,6 @@ class JuliaParser private constructor() : LanguageParser {
             return ParseResult(parseException)
         }
 
-        val parseException = ParseException("Unable to parse unsupported language", 0, 0)
-        return ParseResult(parseException)
+        return ParseResult(null)
     }
 }

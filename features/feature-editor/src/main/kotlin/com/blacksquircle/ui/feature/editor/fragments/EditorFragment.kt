@@ -211,6 +211,26 @@ class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
                 binding.editor.setErrorLine(it.lineNumber)
             }
         }
+        viewModel.runEvent.observe(viewLifecycleOwner) { model ->
+            model.exception?.let {
+                //binding.editor.setErrorLine(it.lineNumber)
+            }
+        }
+        binding.editor.debounce(
+            coroutineScope = viewLifecycleOwner.lifecycleScope,
+            waitMs = 1500
+        ) { text ->
+            if (text.isNotEmpty()) {
+                val position = adapter.selectedPosition
+                if (position > -1) {
+                    viewModel.run(
+                        adapter.currentList[position],
+                        binding.editor.language,
+                        binding.editor.text.toString()
+                    )
+                }
+            }
+        }
         viewModel.contentEvent.observe(viewLifecycleOwner) { (content, textParams) ->
             binding.scroller.state = TextScroller.STATE_HIDDEN
             binding.editor.language = content.language
@@ -646,6 +666,15 @@ class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
                 viewModel.runEvent.value?.let { model ->
                     model.exception?.let {
                         message(text = it.message)
+                    }
+
+                    if (model.exception==null) {
+                        val intent = Intent();
+                        intent.setClassName("tech.ula", "tech.ula.MainActivity");
+                        val bundle = Bundle()
+                        bundle.putString("CODE_FILE_PATH", "LoginActivity")
+                        intent.putExtras(bundle)
+                        startActivity(intent);
                     }
                 }
                 positiveButton(R.string.action_ok)

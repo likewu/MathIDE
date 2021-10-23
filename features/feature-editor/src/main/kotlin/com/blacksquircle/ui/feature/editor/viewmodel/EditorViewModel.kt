@@ -166,7 +166,7 @@ class EditorViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val parser = language?.getParser()
             val parseResult = parser?.execute(documentModel.name, sourceCode, documentModel.path)
-            parseResult?.let(parseEvent::postValue)
+            parseResult?.let(runEvent::postValue)
         }
     }
 
