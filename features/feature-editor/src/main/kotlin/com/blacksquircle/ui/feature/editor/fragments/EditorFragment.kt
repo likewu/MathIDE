@@ -666,7 +666,7 @@ class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
         if (position > -1) {
             MaterialDialog(requireContext()).show {
                 title(R.string.dialog_title_result)
-                message(R.string.message_no_errors_detected)
+                message(R.string.message_runing)
                 viewModel.runEvent.value?.let { model ->
                     model.exception?.let {
                         message(text = it.message)
