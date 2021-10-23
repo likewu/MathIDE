@@ -18,6 +18,7 @@ package com.blacksquircle.ui.feature.editor.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import android.view.KeyEvent
 import android.view.View
 import androidx.core.view.isInvisible
@@ -57,6 +58,7 @@ import com.blacksquircle.ui.utils.interfaces.DrawerHandler
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
+import java.io.File
 
 @AndroidEntryPoint
 class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
@@ -70,6 +72,8 @@ class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
     private val tabController: TabController by lazy { TabController() }
 
     private lateinit var adapter: DocumentAdapter
+
+    private val mathlandDir = File(Environment.getExternalStorageDirectory(), "MathLand")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -672,7 +676,7 @@ class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
                         val intent = Intent();
                         intent.setClassName("tech.ula", "tech.ula.MainActivity");
                         val bundle = Bundle()
-                        bundle.putString("CODE_FILE_PATH", "LoginActivity")
+                        bundle.putString("CODE_FILE_PATH", adapter.currentList[adapter.selectedPosition].path.replace(mathlandDir.absolutePath, ""))
                         intent.putExtras(bundle)
                         startActivity(intent);
                     }
