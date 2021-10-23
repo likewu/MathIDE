@@ -59,6 +59,8 @@ import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
 import java.io.File
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
 class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
@@ -676,9 +678,15 @@ class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
                         val intent = Intent();
                         intent.setClassName("tech.ula", "tech.ula.MainActivity");
                         val bundle = Bundle()
+                        bundle.putString("CODE_LANGUAGE", binding.editor.language?.getName())
                         bundle.putString("CODE_FILE_PATH", adapter.currentList[adapter.selectedPosition].path.replace(mathlandDir.absolutePath, ""))
                         intent.putExtras(bundle)
                         startActivity(intent);
+
+                        val scheduledExecutor = Executors.newSingleThreadScheduledExecutor()
+                        scheduledExecutor.schedule(Runnable {
+                            dismiss()
+                        }, 10000, TimeUnit.MILLISECONDS)
                     }
                 }
                 positiveButton(R.string.action_ok)
