@@ -16,11 +16,15 @@
 
 package com.blacksquircle.ui.feature.editor.fragments
 
+import android.app.ActivityManager
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
 import android.view.KeyEvent
 import android.view.View
+import androidx.core.app.TaskStackBuilder
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
@@ -52,7 +56,10 @@ import com.blacksquircle.ui.feature.editor.utils.ToolbarManager
 import com.blacksquircle.ui.feature.editor.viewmodel.EditorViewModel
 import com.blacksquircle.ui.utils.adapters.TabAdapter
 import com.blacksquircle.ui.utils.delegate.viewBinding
-import com.blacksquircle.ui.utils.extensions.*
+import com.blacksquircle.ui.utils.extensions.closeKeyboard
+import com.blacksquircle.ui.utils.extensions.createTypefaceFromPath
+import com.blacksquircle.ui.utils.extensions.debounce
+import com.blacksquircle.ui.utils.extensions.showToast
 import com.blacksquircle.ui.utils.interfaces.BackPressedHandler
 import com.blacksquircle.ui.utils.interfaces.DrawerHandler
 import com.google.android.material.textfield.TextInputEditText
@@ -675,13 +682,33 @@ class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
                     }
 
                     if (model.exception==null) {
-                        val intent = Intent();
-                        intent.setClassName("tech.ula", "tech.ula.MainActivity");
+                        val resultIntent = Intent();
+                        resultIntent.setClassName("tech.ula", "tech.ula.MainActivity");
+                        val cmpName: ComponentName = resultIntent.resolveActivity(context.getPackageManager())
+                        var flag = false
+                        if (cmpName != null) {
+                            val am: ActivityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager;
+                            val taskInfoList: List<ActivityManager.RunningTaskInfo> = am.getRunningTasks (10);
+                            for (taskInfo: ActivityManager.RunningTaskInfo in taskInfoList) {
+                                if (taskInfo.baseActivity!!.equals(cmpName)) {
+                                    flag = true;
+                                    break;
+                                }
+                            }
+                        }
                         val bundle = Bundle()
                         bundle.putString("CODE_LANGUAGE", binding.editor.language?.getName())
                         bundle.putString("CODE_FILE_PATH", adapter.currentList[adapter.selectedPosition].path.replace(mathlandDir.absolutePath, ""))
-                        intent.putExtras(bundle)
-                        startActivity(intent);
+                        resultIntent.putExtras(bundle)
+                        if (flag) {
+                            resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(resultIntent);
+                        } else {
+                            TaskStackBuilder.create(this@EditorFragment.context!!)
+                                .addParentStack(resultIntent.getComponent())
+                                .addNextIntent(resultIntent)
+                                .startActivities();
+                        }
 
                         val scheduledExecutor = Executors.newSingleThreadScheduledExecutor()
                         scheduledExecutor.schedule(Runnable {
