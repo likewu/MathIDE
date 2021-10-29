@@ -87,6 +87,8 @@
 
             <data android:mimeType="*/*" />
         </intent>
+        <package android:name="tech.ula" />
+        <package android:name="cn.leafcolor.ui" />
     </queries>
 
 </manifest>

@@ -32,7 +32,7 @@ android {
         targetSdkVersion versions.targetSdk
 
         versionCode 10007
-        versionName "2021.10.21"
+        versionName "2021.10.29"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
