@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-if (versions == null || versions.publishVersionName == null) {
+/*if (versions == null || versions.publishVersionName == null) {
     throw new IllegalStateException("Unable to reference publishVersionName!")
 } else if (libraryGroupId == null || libraryArtifactId == null) {
     throw new IllegalStateException("Must provide libraryGroupId and libraryArtifactId!")
@@ -76,11 +76,11 @@ publishing {
                 packaging 'aar'
                 name = libraryArtifactId
                 description = 'Squircle IDE is a fast and free multi-language code editor for Android.'
-                url = 'https://github.com/massivemadness/Squircle-IDE'
+                url = 'https://github.com/likewu/MathIDE'
                 licenses {
                     license {
                         name = 'Apache 2.0 License'
-                        url = 'https://github.com/massivemadness/Squircle-IDE/blob/master/LICENSE'
+                        url = 'https://github.com/likewu/MathIDE/blob/master/LICENSE'
                     }
                 }
                 developers {
@@ -91,9 +91,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'scm:git:github.com/massivemadness/Squircle-IDE.git'
-                    developerConnection = 'scm:git:ssh://github.com/massivemadness/Squircle-IDE.git'
-                    url = 'https://github.com/massivemadness/Squircle-IDE/tree/master'
+                    connection = 'scm:git:github.com/likewu/MathIDE.git'
+                    developerConnection = 'scm:git:ssh://github.com/likewu/MathIDE.git'
+                    url = 'https://github.com/likewu/MathIDE/tree/master'
                 }
                 withXml {
                     def dependenciesNode = asNode().appendNode('dependencies')
@@ -138,4 +138,4 @@ signing {
 
 afterEvaluate {
     publishReleasePublicationToSonatypeRepository.dependsOn assembleRelease
-}
+}*/

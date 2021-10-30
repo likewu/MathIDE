@@ -12,4 +12,4 @@ Thanks for using Squircle IDE!
 - Unordered List Item
 
 **OPEN SOURCE CODE:**
-https://github.com/massivemadness/Squircle-IDE
+https://github.com/likewu/MathIDE

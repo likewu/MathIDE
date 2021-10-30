@@ -2,9 +2,9 @@
 
 **Squircle IDE** is a fast and free multi-language code editor for Android.
 
-![Android CI](https://github.com/massivemadness/Squircle-IDE/workflows/Android%20CI/badge.svg) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![Android CI](https://github.com/likewu/MathIDE/workflows/Android%20CI/badge.svg) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-<img src="https://raw.githubusercontent.com/massivemadness/Squircle-IDE/master/.github/images/carbon.png" width="700" />
+<img src="https://raw.githubusercontent.com/likewu/MathIDE/master/.github/images/carbon.png" width="700" />
 
 ---
 

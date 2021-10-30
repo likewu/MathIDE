@@ -46,7 +46,7 @@ task installGitHook(type: Copy) {
     fileMode 0777
 }
 
-tasks.getByPath(':app:preBuild').dependsOn installGitHook
+//tasks.getByPath(':app:preBuild').dependsOn installGitHook
 
 
 import java.text.SimpleDateFormat

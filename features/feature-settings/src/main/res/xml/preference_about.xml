@@ -28,7 +28,7 @@
             android:title="@string/pref_privacy_policy_title">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/massivemadness/Squircle-IDE/blob/master/PRIVACY-POLICY.md"/>
+                android:data="https://github.com/likewu/MathIDE/blob/master/PRIVACY-POLICY.md"/>
         </Preference>
 
     </PreferenceCategory>
@@ -40,7 +40,7 @@
             android:summary="@string/pref_contribute_summary">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/massivemadness/Squircle-IDE"/>
+                android:data="https://github.com/likewu/MathIDE"/>
         </Preference>
 
     </PreferenceCategory>

@@ -38,15 +38,38 @@ android {
     }
     flavorDimensions "store"
     productFlavors {
-        googlePlay { dimension "store" }
+        //googlePlay { dimension "store" }
         fdroid { dimension "store" }
+        //baidu { dimension "store" }
+    }
+    signingConfigs {
+        beta {
+            storeFile project.file('E:/www/app-pvtool-android/clips/leafcolor.keystore')
+            keyAlias 'leafcolor_mathide'
+            storePassword System.getenv('ANDROID_STORE_PASSWORD')
+            keyPassword System.getenv('ANDROID_KEY_PASSWORD')
+        }
+        release {
+            storeFile project.file('E:/www/app-pvtool-android/clips/leafcolor.keystore')
+            keyAlias 'leafcolor_mathide'
+            storePassword System.getenv('ANDROID_STORE_PASSWORD')
+            keyPassword System.getenv('ANDROID_KEY_PASSWORD')
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             debuggable false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        /*beta {
+            versionNameSuffix "-beta-$defaultConfig.versionCode"
+            debuggable false
+            minifyEnabled false
+            signingConfig signingConfigs.beta
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }*/
         debug {
             minifyEnabled false
             debuggable true
@@ -61,8 +84,9 @@ android {
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+        //baidu.java.srcDirs += 'src/baidu/kotlin'
         fdroid.java.srcDirs += 'src/fdroid/kotlin'
-        googlePlay.java.srcDirs += 'src/googlePlay/kotlin'
+        //googlePlay.java.srcDirs += 'src/googlePlay/kotlin'
         test.java.srcDirs += 'src/test/kotlin'
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
         //Tell Gradle where to put the compiled shared library
@@ -85,7 +109,7 @@ dependencies {
     implementation library.fragment
 
     // Google Play
-    googlePlayImplementation library.playcore
+    //googlePlayImplementation library.playcore
 
     // UI
     implementation library.appcompat
