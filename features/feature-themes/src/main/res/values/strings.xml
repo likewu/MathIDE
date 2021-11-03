@@ -24,7 +24,7 @@
     <string name="hint_enter_theme_author">Enter theme author</string>
     <string name="hint_enter_theme_desc">Short description</string>
     <string name="hint_theme_name" translatable="false">Darcula</string>
-    <string name="hint_theme_author" translatable="false">Squircle IDE</string>
+    <string name="hint_theme_author" translatable="false">Math IDE</string>
     <string name="hint_theme_desc">Default color scheme</string>
     <string name="hint_search">Search…</string>
 

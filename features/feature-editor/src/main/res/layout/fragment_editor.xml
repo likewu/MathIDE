@@ -56,7 +56,7 @@
                 android:layout_height="45dp"
                 android:layout_toStartOf="@id/action_file"
                 android:padding="10.5dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:src="@drawable/ic_save"
                 android:background="@drawable/ripple_20dp"
                 android:id="@+id/action_save"

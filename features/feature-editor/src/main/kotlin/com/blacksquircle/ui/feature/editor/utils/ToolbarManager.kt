@@ -151,7 +151,7 @@ class ToolbarManager(
     }
 
     private fun portrait(): Int {
-        binding.actionSave.visibility = View.GONE
+        //binding.actionSave.visibility = View.GONE
         binding.actionFind.visibility = View.GONE
         binding.actionTools.visibility = View.GONE
         setMenuClickListener(binding.actionOverflow, R.menu.menu_overflow_vertical)
@@ -159,7 +159,7 @@ class ToolbarManager(
     }
 
     private fun landscape(): Int {
-        binding.actionSave.visibility = View.VISIBLE
+        //binding.actionSave.visibility = View.VISIBLE
         binding.actionFind.visibility = View.VISIBLE
         binding.actionTools.visibility = View.VISIBLE
         setMenuClickListener(binding.actionOverflow, R.menu.menu_overflow_horizontal)
