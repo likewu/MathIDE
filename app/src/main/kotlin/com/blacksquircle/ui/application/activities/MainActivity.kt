@@ -21,10 +21,10 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import cn.leafcolor.ui.R
+import cn.leafcolor.mathide.R
 import com.blacksquircle.ui.application.dialogs.ConfirmExitDialog
 import com.blacksquircle.ui.application.viewmodel.MainViewModel
-import cn.leafcolor.ui.databinding.ActivityMainBinding
+import cn.leafcolor.mathide.databinding.ActivityMainBinding
 import com.blacksquircle.ui.feature.editor.fragments.EditorFragment
 import com.blacksquircle.ui.feature.editor.viewmodel.EditorViewModel
 import com.blacksquircle.ui.feature.explorer.fragments.ExplorerFragment

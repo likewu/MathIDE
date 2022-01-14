@@ -20,7 +20,7 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import com.afollestad.materialdialogs.MaterialDialog
-import cn.leafcolor.ui.R
+import cn.leafcolor.mathide.R
 
 class ConfirmExitDialog : DialogFragment() {
 

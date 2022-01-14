@@ -17,7 +17,7 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="cn.leafcolor.ui">
+    package="cn.leafcolor.mathide">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -31,7 +31,7 @@
         android:supportsRtl="false"
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme"
-        android:name="cn.leafcolor.ui.SquircleApp"
+        android:name="cn.leafcolor.mathide.SquircleApp"
         android:fullBackupContent="@xml/backup_descriptor"
         tools:replace="android:supportsRtl">
 
@@ -88,7 +88,7 @@
             <data android:mimeType="*/*" />
         </intent>
         <package android:name="tech.ula" />
-        <package android:name="cn.leafcolor.ui" />
+        <package android:name="cn.leafcolor.mathland" />
     </queries>
 
 </manifest>

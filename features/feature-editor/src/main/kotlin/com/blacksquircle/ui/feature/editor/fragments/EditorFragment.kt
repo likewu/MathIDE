@@ -683,7 +683,7 @@ class EditorFragment : Fragment(R.layout.fragment_editor), BackPressedHandler,
 
                     if (model.exception==null) {
                         val resultIntent = Intent();
-                        resultIntent.setClassName("tech.ula", "cn.leafcolor.mathland.MainActivity");
+                        resultIntent.setClassName("cn.leafcolor.mathland", "cn.leafcolor.mathland.MainActivity");
                         val cmpName: ComponentName = resultIntent.resolveActivity(context.getPackageManager())
                         var flag = false
                         if (cmpName != null) {

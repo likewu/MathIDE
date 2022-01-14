@@ -14,10 +14,23 @@
  * limitations under the License.
  */
 
-package cn.leafcolor.ui
+package com.blacksquircle.ui.internal.di
 
-import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.blacksquircle.ui.utils.inappupdate.InAppUpdate
+import com.blacksquircle.ui.utils.inappupdate.InAppUpdateStub
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
-@HiltAndroidApp
-class SquircleApp : Application()
+@Module
+@InstallIn(SingletonComponent::class)
+object InAppUpdateModule {
+
+    @Provides
+    @Singleton
+    fun provideInAppUpdate(): InAppUpdate {
+        return InAppUpdateStub()
+    }
+}
