@@ -23,6 +23,7 @@ ext.libraryGroupId = "com.blacksquircle.ui"
 ext.libraryArtifactId = "editorkit"
 
 apply from: rootProject.file("gradle/publish.gradle")
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -62,4 +63,9 @@ dependencies {
 
     // Tests
     testImplementation testLibrary.junit
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
